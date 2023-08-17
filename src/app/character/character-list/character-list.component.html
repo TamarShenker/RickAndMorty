@@ -1,0 +1,20 @@
+<header class="header">
+  <h1 class="title">Rick and Morty Api</h1>
+</header>
+
+<div class="wrapper">
+  <div clas="card" *ngFor="let character of characters$ | async">
+    <app-charater-card [character]="character"></app-charater-card>
+  </div>
+</div>
+<div class="footer">
+  <div class="action">
+    <button mat-raised-button color="primary" type="button" [disabled]="page < 2" (click)="setPage(page - 1)">Previous
+    </button>
+    <span>Page: {{ page }}/{{ this.characterService.pages }}</span>
+    <button mat-raised-button color="primary" type="button" [disabled]="!(page < this.characterService.pages)"
+            (click)="setPage(page + 1)">Next
+    </button>
+    <button mat-raised-button color="primary" (click)="addCharacter(null)">Add New Character</button>
+  </div>
+</div>

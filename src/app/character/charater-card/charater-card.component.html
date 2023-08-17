@@ -1,0 +1,27 @@
+<div class="flex flex-wrap justify-center">
+  <mat-card>
+  <div>
+    <img
+      [src]="character.image"
+    />
+    <div class="card-body">
+      <h3><a [href]="getCharacter(character.url)" target="_blank">{{
+        character.name
+        }}</a></h3>
+
+      <span>Last known location:</span><br>
+      <a [href]="getLocation(character.location.url)" target="_blank">{{
+        character.location.name
+        }}</a><br>
+      <span>First seen in:</span><br>
+      <a [href]="getEpisode(character.origin.url)" target="_blank">{{
+        character.origin.name
+        }}</a>
+    </div>
+  </div>
+  <div class="actions">
+    <button mat-raised-button color="primary" (click)="deleteCharacter(character.id)">Delete</button>
+    <button mat-raised-button color="primary" (click)="editCharacter(character)">Edit</button>
+  </div>
+    </mat-card>
+</div>
